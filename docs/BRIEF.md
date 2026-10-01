@@ -1,15 +1,4 @@
-# The brief
+# GNSS module breakout
 
-Describe the board you want: what it does, the parts it must use, the
-interfaces it exposes, and the constraints that bound the layout.
-
-A hosted `create` run overwrites this file with the brief you typed in the
-console, then works from it.
-
-## What makes a brief usable
-
-- **Parts** by designator where you care, and by function where you do not.
-- **Power**: what comes in, what rails come out, and how much current.
-- **Interfaces**: every connector and bus, and what is on it.
-- **Constraints**: layer count, board outline, assembly method, and anything
-  the board must not do.
+Design a compact **LC29HBA GNSS breakout board** based on the Quectel LC29HBA GNSS module, intended to receive GNSS signals through an **external active GNSS antenna** and provide a simple interface for connection to an external MCU such as an ESP32. The board should contain only the essential GNSS circuitry required for reliable operation of the LC29HBA, including the recommended 3.3 V power supply, power filtering and decoupling capacitors, required LC29HBA control connections, and the complete active-antenna RF input and antenna-bias circuit as recommended in the LC29HBA reference design. The antenna interface should support an external active GNSS antenna through an SMA or U.FL/IPEX connector, with a properly designed 50 Ω RF transmission line, suitable RF filtering, antenna bias supply, RF grounding, and appropriate RF keepout. The board should expose a simple **4-pin MCU interface header consisting of 3.3 V, GND, GNSS TX, and GNSS RX**, allowing the breakout board to be directly connected to any compatible microcontroller. The UART interface should operate at the required logic level of 3.3 V, with the LC29HBA TX connected to the MCU RX and LC29HBA RX connected to the MCU TX. No ESP32, USB-UART converter, USB connector, OLED, or other communication circuitry should be included on this board; the MCU will be external. The PCB should prioritize GNSS RF performance, clean power, proper grounding, short RF routing, 50 Ω impedance control, and easy integration with an MCU. Include all necessary LC29HBA power, RF, antenna-bias, decoupling, grounding, and required support components according to the latest official LC29HBA hardware/reference design, while leaving unnecessary pins and features out of the design. The final board should function as a standalone LC29HBA GNSS receiver module that accepts an active antenna and provides only **3.3 V, GND, TX, and RX** to the external MCU, allowing the MCU to receive NMEA GNSS data and send configuration commands to the LC29HBA.
+.
